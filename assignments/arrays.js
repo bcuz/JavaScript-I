@@ -73,7 +73,8 @@ for (const car of inventory) {
 // ==== Challenge 2 ====
 // The dealer needs the information on the last car in their inventory.  What is the make and model of the last car in the inventory?  Log the make and model into the console.
 let lastCar = inventory[inventory.length - 1];
-console.log(lastCar);
+console.log(lastCar.car_make);
+console.log(lastCar.car_model);
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
@@ -93,6 +94,9 @@ for (const car of inventory) {
 }
 console.log(carYears);
 
+// using map
+// let years = inventory.map(car => car.car_year)
+
 // ==== Challenge 5 ====
 // The car lot manager needs to find out how many cars are older than the year 2000. Using the carYears array you just created, find out how many cars were made before the year 2000 by populating the array oldCars and logging it's length.
 let oldCars =[];
@@ -101,7 +105,11 @@ for (const year of carYears) {
     oldCars.push(year)
   }
 }
-console.log(oldCars.length); 
+console.log(oldCars.length); // 25
+
+// using filter
+// let old = inventory.filter(car => car.car_year < 2000)
+// console.log(old);
 
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
@@ -111,9 +119,10 @@ for (const car of inventory) {
   if (car.car_make == 'BMW' || car.car_make == 'Audi') {
     BMWAndAudi.push(car)    
   }
-  
 }
-console.log(JSON.stringify(BMWAndAudi));
 
+// using filter
+// BMWAndAudi = inventory.filter(car => car.car_make == 'BMW' || car.car_make == 'Audi')
+// console.log(BMWAndAudi);
 
-
+console.log(JSON.stringify(BMWAndAudi)); // 6 cars
